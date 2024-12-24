@@ -1,3 +1,3 @@
 #!/bin/bash
 
-data >> date.log
+date >> date.log
