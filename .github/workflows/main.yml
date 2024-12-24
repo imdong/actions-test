@@ -43,6 +43,7 @@ jobs:
           sed -i 's/- cron:/# - cron:/' .github/workflows/main.yml
 
       - name: Commit and Push
+        if: success() || env.self_destruct == 'yes' 
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
