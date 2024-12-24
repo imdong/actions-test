@@ -36,6 +36,9 @@ jobs:
             echo "And in case i don't see you,good afternoon,good evening,and good night!"
           fi
 
+      - name: Debug Self Destruct Env
+        run: echo "self_destruct is ${{ env.self_destruct }}"
+
       - name: Self Destruct
         if: env.self_destruct == 'yes'
         run: |
