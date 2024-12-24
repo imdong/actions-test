@@ -30,5 +30,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          gh auth login --with-token <<< "$GITHUB_TOKEN"
           gh run list --workflow=main.yml --repo ${{ github.repository }} --limit 10 --json conclusion
