@@ -45,10 +45,15 @@ jobs:
           sed -i 's/- cron:/# - cron:/' .github/workflows/main.yml
 
       - name: Commit and Push
-        if: success() || env.self_destruct == 'yes' 
+        if: success() || env.self_destruct == 'yes'
         run: |
+          if [ "${{ env.self_destruct }}" == "yes" ]; then
+            commit_message="Self Destruct Activated - $(date)"
+          else
+            commit_message="Create Snapshot By $(date)"
+          fi
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add date.log .github/workflows/main.yml
-          git commit -m "Create Snapshot By $(date)"
+          git commit -m "${commit_message}"
           git push origin main
