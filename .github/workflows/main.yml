@@ -36,12 +36,8 @@ jobs:
             echo "And in case i don't see you,good afternoon,good evening,and good night!"
           fi
 
-      - name: Debug Self Destruct Env
-        if: failure()
-        run: echo "self_destruct is ${{ env.self_destruct }}"
-
       - name: Self Destruct
-        if: env.self_destruct == 'yes'
+        if: failure() && env.self_destruct == 'yes'
         run: |
           echo "Start the self-destruct process..."
           sed -i 's/- cron:/# - cron:/' .github/workflows/main.yml
