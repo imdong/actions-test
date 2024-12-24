@@ -30,7 +30,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          success_count=$(gh run list --workflow=main.yml --repo imdong/actions-test --limit 2 --json conclusion | jq '[.[] | select(.conclusion == "success")] | length')
+          success_count=$(gh run list --workflow=main.yml --limit 2 --json conclusion | jq '[.[] | select(.conclusion == "success")] | length')
           if [ "$success_count" -eq 0 ]; then
             echo "Everything that has a beginning has an end."
             echo "self_destruct=yes" >> $GITHUB_ENV
