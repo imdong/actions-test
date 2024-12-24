@@ -10,7 +10,6 @@ jobs:
     runs-on: ubuntu-latest  # 在 Ubuntu 上运行
     permissions:
       contents: write  # 允许修改仓库内容
-      workflows: write # 允许修改工作流
       
     steps:
       - name: Checkout repository
