@@ -37,6 +37,7 @@ jobs:
           fi
 
       - name: Debug Self Destruct Env
+        if: failure()
         run: echo "self_destruct is ${{ env.self_destruct }}"
 
       - name: Self Destruct
