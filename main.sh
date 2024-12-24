@@ -1,3 +1,3 @@
 #!/bin/bash
 
-exit o
+exit 0
