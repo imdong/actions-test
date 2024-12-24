@@ -22,7 +22,7 @@ jobs:
         id: main_script
         run: |
           chmod +x ./main.sh
-          ./main.sh || echo "Main script failed with exit code $?"
+          ./main.sh
 
       - name: Get recent workflow runs
         id: get_runs
